@@ -7,7 +7,7 @@ import router from './router'
 const app = createApp(App)
 
 router.beforeEach((to) => {
-    document.title = to.meta.title || 'Vue';
+    document.title = (to.meta.title as string)  || 'Vue';
 });
 
 app.use(createPinia())
