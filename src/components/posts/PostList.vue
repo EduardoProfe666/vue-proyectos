@@ -24,7 +24,8 @@ const posts: Ref<Post[]> = ref([
 
 const starPost = (idPost: number) => {
   const post = posts.value.find(x => x.id === idPost);
-  post.starred = !post.starred;
+  if(post)
+    post.starred = !post.starred;
 }
 </script>
 
