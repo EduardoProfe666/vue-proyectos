@@ -43,6 +43,14 @@ const router = createRouter({
       meta: {
         title: 'Lista de Tareas'
       }
+    },
+    {
+      path: '/post-list',
+      name: 'post-list',
+      component: () => import('../views/PostListView.vue'),
+      meta: {
+        title: 'Lista de Posts'
+      }
     }
   ]
 })

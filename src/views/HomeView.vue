@@ -9,6 +9,7 @@
       <RouterLink to="country-list" class="project-link">Listado de Países</RouterLink>
       <RouterLink to="teacher-form" class="project-link">Formulario de Profesores</RouterLink>
       <RouterLink to="todo-list" class="project-link">Lista de Tareas</RouterLink>
+      <RouterLink to="post-list" class="project-link">Lista de Posts</RouterLink>
     </div>
   </main>
 </template>
