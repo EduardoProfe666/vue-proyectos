@@ -9,7 +9,7 @@ const route = useRoute();
 <template>
   <FAB v-if="route.path !== '/'"/>
   <RouterView/>
-  <Footer/>
+  <Footer/> 
 </template>
 
 <style scoped>
