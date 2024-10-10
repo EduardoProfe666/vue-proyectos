@@ -43,9 +43,9 @@ interface ToDoItem {
 
 const newToDo: Ref<string> = ref('');
 const toDoList: Ref<ToDoItem[]> = ref([
-  { id: generator.next().value, localdatetime: new Date(), completed: false, task: "Tarea 1" },
-  { id: generator.next().value, localdatetime: new Date(), completed: false, task: "Tarea 2" },
-  { id: generator.next().value, localdatetime: new Date(), completed: false, task: "Tarea 3" },
+  { id: (generator.next().value as number), localdatetime: new Date(), completed: false, task: "Tarea 1" },
+  { id: (generator.next().value as number), localdatetime: new Date(), completed: false, task: "Tarea 2" },
+  { id: (generator.next().value as number), localdatetime: new Date(), completed: false, task: "Tarea 3" },
 ]);
 
 const handleNewToDo = () => {
@@ -55,7 +55,7 @@ const handleNewToDo = () => {
   }
 
   toDoList.value.push({
-    id: generator.next().value,
+    id: (generator.next().value as number),
     localdatetime: new Date(),
     completed: false,
     task: newToDo.value
@@ -74,9 +74,9 @@ const formatDateTime = (date: Date): string => {
 
   const ampm = hours >= 12 ? 'PM' : 'AM';
   hours = hours % 12;
-  hours = hours ? String(hours).padStart(2, '0') : '12';
+  const formattedHours = hours ? String(hours).padStart(2, '0') : '12'; // Format as string
 
-  return `${day}/${month}/${year} ${hours}:${minutes} ${ampm}`;
+  return `${day}/${month}/${year} ${formattedHours}:${minutes} ${ampm}`;
 }
 </script>
 
