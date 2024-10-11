@@ -51,6 +51,14 @@ const router = createRouter({
       meta: {
         title: 'Lista de Posts'
       }
+    },
+    {
+      path: '/phrases',
+      name: 'phrases',
+      component: () => import('../views/PhraseShowerView.vue'),
+      meta: {
+        title: 'Frases'
+      }
     }
   ]
 })
