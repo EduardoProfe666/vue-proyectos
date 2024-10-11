@@ -1,30 +1,19 @@
 <script setup lang="ts">
-  import {ref} from 'vue';
-  let counter = ref(0);
+  import {useCounterStore} from "@/stores/counter";
 
-  const addCounter = () => {
-    counter.value++;
-  }
-
-  const minusCounter = () => {
-    counter.value--;
-  }
-
-  const reset = () => {
-    counter.value = 0;
-  }
+  const counterStore = useCounterStore();
 
 </script>
 
 <template>
   <div class="counter">
-    <h3 class="num">{{counter}}</h3>
+    <h3 class="num">{{counterStore.count}}</h3>
     <div class="buttons">
-      <button class="btn-outlined" @click="minusCounter">Decrementar</button>
-      <button class="btn-outlined" @click="addCounter">Incrementar</button>
+      <button class="btn-outlined" @click="counterStore.decrement()">Decrementar</button>
+      <button class="btn-outlined" @click="counterStore.increment()">Incrementar</button>
     </div>
     <div class="reset">
-      <button class="reset-btn" @click="reset">Resetear</button>
+      <button class="reset-btn" @click="counterStore.reset()">Resetear</button>
     </div>
 
   </div>
