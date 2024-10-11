@@ -1,0 +1,9 @@
+### GET request to example server
+POST https://hfp69ilv.directus.app/auth/login
+Content-Type: application/json
+
+{
+  "email": 999,
+  "password": "content"
+}
+###

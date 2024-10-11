@@ -62,6 +62,14 @@ const router = createRouter({
       }
     },
     {
+      path: '/portfolio',
+      name: 'portfolio',
+      component: () => import('../views/PortfolioView.vue'),
+      meta: {
+        title: 'Portfolio'
+      }
+    },
+    {
       path: '/:catchAll(.*)',
       name: '404',
       component: NotFoundView,

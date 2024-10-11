@@ -71,6 +71,15 @@
           </ul>
         </div>
       </RouterLink>
+      <RouterLink to="portfolio" class="project-card">
+        <h3>Portfolio muy básico</h3>
+        <div class="highlight">
+          <strong>Puntos claves</strong>
+          <ul>
+            <li>Integración con <em>Bootstrap</em></li>
+          </ul>
+        </div>
+      </RouterLink>
       <RouterLink to="404" class="project-card">
         <h3>Página de Error 404</h3>
         <div class="highlight">
@@ -131,11 +140,11 @@ body {
 .project-card h3 {
   margin-top: 0;
   font-size: 1.5rem;
-  transition: color .3s ease; /* Transición suave para el color */
+  transition: color .3s ease;
 }
 
 .project-card:hover h3 {
-  color: #2980b9; /* Cambia el color del título al pasar el mouse */
+  color: #2980b9;
 }
 
 .highlight {
@@ -143,12 +152,12 @@ body {
   border-left: solid #3498db;
   padding: 15px;
   border-radius: .5rem;
-  transition: transform .3s ease-in-out, box-shadow .3s ease-in-out; /* Transición suave */
+  transition: transform .3s ease-in-out, box-shadow .3s ease-in-out;
 }
 
 .highlight:hover {
-  transform: scale(1.05); /* Efecto de escalado al pasar el mouse */
-  box-shadow: rgba(0,0,0,.2) -4px -4px .7rem; /* Sombra más pronunciada al pasar el mouse */
+  transform: scale(1.05);
+  box-shadow: rgba(0,0,0,.2) -4px -4px .7rem;
 }
 
 .highlight strong {
@@ -165,11 +174,11 @@ body {
 
 .project-card li {
   margin-bottom: .5rem;
-  transition: transform .2s ease; /* Transición suave para los elementos de la lista */
+  transition: transform .2s ease;
 }
 
 .project-card li:hover {
-  transform: translateX(5px); /* Efecto de desplazamiento al pasar el mouse */
+  transform: translateX(5px);
 }
 
 .project-card em {
@@ -183,7 +192,7 @@ body {
   }
 
   .project-card {
-    flex-basis: calc(100% -20px);
+    flex-basis: calc(100% - 20px);
     margin-bottom:20px;
     padding:15px;
     font-size:.9rem;
