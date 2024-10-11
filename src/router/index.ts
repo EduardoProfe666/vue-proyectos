@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import NotFoundView from "@/views/NotFoundView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -58,6 +59,14 @@ const router = createRouter({
       component: () => import('../views/PhraseShowerView.vue'),
       meta: {
         title: 'Frases'
+      }
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: '404',
+      component: NotFoundView,
+      meta: {
+        title: '404'
       }
     }
   ]
