@@ -4,7 +4,7 @@ import { Ref, ref } from "vue";
 let countries: Ref<string[]> = ref(['España', 'Estados Unidos', 'Cuba', 'Chile']);
 let newCountry: Ref<string> = ref('');
 
-const insertar = () => {
+const insert = () => {
   const val = newCountry.value;
   if (countries.value.includes(val)) {
     alert("País ya existente");
@@ -24,7 +24,7 @@ const insertar = () => {
     <hr />
     <div class="input-container">
       <input v-model="newCountry" type="text" placeholder="Añadir nuevo país" class="country-input"/>
-      <button @click="insertar" class="insert-button">Insertar</button>
+      <button @click="insert" class="insert-button">Insertar</button>
     </div>
   </div>
 </template>

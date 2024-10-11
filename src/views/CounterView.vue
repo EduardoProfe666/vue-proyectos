@@ -6,5 +6,5 @@
 </style>
 
 <script setup lang="ts">
-import Counter from "@/components/Counter.vue";
+import Counter from "@/components/counter/Counter.vue";
 </script>

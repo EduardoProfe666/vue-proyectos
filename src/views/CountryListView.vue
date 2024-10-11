@@ -6,5 +6,5 @@
 </style>
 
 <script setup lang="ts">
-import CountryList from "@/components/CountryList.vue";
+import CountryList from "@/components/country-list/CountryList.vue";
 </script>

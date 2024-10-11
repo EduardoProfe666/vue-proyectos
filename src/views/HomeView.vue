@@ -11,6 +11,7 @@
       <RouterLink to="todo-list" class="project-link">Lista de Tareas</RouterLink>
       <RouterLink to="post-list" class="project-link">Lista de Posts</RouterLink>
       <RouterLink to="phrases" class="project-link">Frases</RouterLink>
+      <RouterLink to="404" class="project-link">Página de Error 404</RouterLink>
     </div>
   </main>
 </template>

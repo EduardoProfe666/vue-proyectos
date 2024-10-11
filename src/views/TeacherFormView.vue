@@ -7,6 +7,6 @@
 </style>
 
 <script setup lang="ts">
-import TeacherForm from "@/components/TeacherForm.vue";
+import TeacherForm from "@/components/teacher-form/TeacherForm.vue";
 
 </script>

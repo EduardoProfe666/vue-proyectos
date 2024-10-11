@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref, Ref } from "vue";
-import getRandomPhrase, { Phrase } from "@/components/phrases/get-random-phrase";
+import Phrase from "@/components/phrases/phrase.model";
+import PhraseService from "@/components/phrases/phrase.service";
 
 const phrase: Ref<Phrase | null> = ref(null);
+const phraseService = new PhraseService();
 
 onMounted(async () => {
   await fetchNewPhrase();
@@ -11,7 +13,7 @@ onMounted(async () => {
 const fetchNewPhrase = async () => {
   phrase.value = null;
   try {
-    const p = await getRandomPhrase();
+    const p = await phraseService.getRandomPost();
     if(p)
         phrase.value = p;
   } catch (error) {

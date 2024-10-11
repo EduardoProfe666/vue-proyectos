@@ -1,32 +1,11 @@
 <script setup lang="ts">
 import PostItem from "@/components/posts/PostItem.vue";
-import {ref, Ref} from "vue";
+import PostService from "@/components/posts/post.service";
 
-interface Post {
-  id: number;
-  title: string;
-  content: string;
-  starred: boolean;
-}
+const postService = new PostService();
+const posts = postService.getPosts();
 
-const posts: Ref<Post[]> = ref([
-  {id: 1, title: "Primer Post", content: "Contenido del primer post.", starred: false},
-  {id: 2, title: "Segundo Post", content: "Contenido del segundo post.", starred: false},
-  {id: 3, title: "Tercer Post", content: "Contenido del tercer post.", starred: true},
-  {id: 4, title: "Cuarto Post", content: "Contenido del cuarto post.", starred: false},
-  {id: 5, title: "Quinto Post", content: "Contenido del quinto post.", starred: false},
-  {id: 6, title: "Sexto Post", content: "Contenido del sexto post.", starred: false},
-  {id: 7, title: "Séptimo Post", content: "Contenido del séptimo post.", starred: false},
-  {id: 8, title: "Octavo Post", content: "Contenido del octavo post.", starred: false},
-  {id: 9, title: "Noveno Post", content: "Contenido del noveno post.", starred: false},
-  {id: 10, title: "Décimo Post", content: "Contenido del décimo post.", starred: false}
-]);
-
-const starPost = (idPost: number) => {
-  const post = posts.value.find(x => x.id === idPost);
-  if(post)
-    post.starred = !post.starred;
-}
+const handleStartPost = (id: number) => postService.startPost(id);
 </script>
 
 <template>
@@ -38,7 +17,7 @@ const starPost = (idPost: number) => {
         :title="post.title"
         :content="post.content"
         :starred="post.starred"
-        @star-post="starPost(post.id)"
+        @star-post="handleStartPost"
         :id="post.id"
     />
   </div>

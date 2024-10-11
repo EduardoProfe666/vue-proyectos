@@ -24,29 +24,13 @@
 
 <script setup lang="ts">
 import { ref, Ref } from "vue";
+import TodoService from "@/components/toDo/todo.service";
+import ToDoItem from "@/components/toDo/todo-item.model";
+import {formatDateTime} from "./utils";
 
-function* uniqueNumberGenerator() {
-  let count = 1;
-  while (true) {
-    yield count++;
-  }
-}
-
-const generator = uniqueNumberGenerator();
-
-interface ToDoItem {
-  task: string;
-  localdatetime: Date;
-  id: number;
-  completed: boolean;
-}
-
+const todoService = new TodoService();
 const newToDo: Ref<string> = ref('');
-const toDoList: Ref<ToDoItem[]> = ref([
-  { id: (generator.next().value as number), localdatetime: new Date(), completed: false, task: "Tarea 1" },
-  { id: (generator.next().value as number), localdatetime: new Date(), completed: false, task: "Tarea 2" },
-  { id: (generator.next().value as number), localdatetime: new Date(), completed: false, task: "Tarea 3" },
-]);
+const toDoList: Ref<ToDoItem[]> = todoService.getTodoList();
 
 const handleNewToDo = () => {
   if (newToDo.value.length === 0) {
@@ -54,30 +38,12 @@ const handleNewToDo = () => {
     return;
   }
 
-  toDoList.value.push({
-    id: (generator.next().value as number),
-    localdatetime: new Date(),
-    completed: false,
-    task: newToDo.value
-  });
+  todoService.insertTodo(newToDo.value);
 
   newToDo.value = '';
 }
 
-const formatDateTime = (date: Date): string => {
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const year = date.getFullYear();
 
-  let hours = date.getHours();
-  const minutes = String(date.getMinutes()).padStart(2, '0');
-
-  const ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12;
-  const formattedHours = hours ? String(hours).padStart(2, '0') : '12'; // Format as string
-
-  return `${day}/${month}/${year} ${formattedHours}:${minutes} ${ampm}`;
-}
 </script>
 
 <style scoped>
